@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+@media screen and (max-width: 900px) {
+    html {
+        font-size: 9px;
+    }
+}
+@media screen and (max-width: 700px) {
+    html {
+        font-size: 7px;
+    }
+}
+@media screen and (max-width: 500px) {
+    html {
+        font-size: 6px;
+    }
+    .location {
+        position: absolute;
+        top: 6rem;
+        right: 6rem;
+        
+    }
+}
+
+// @media screen and (max-width: 300px) {
+//     html {
+//         font-size: 5px;
+//     }
+//     .location {
+//         position: absolute;
+//         top: 6rem;
+//         right: 6rem;
+        
+//     }
+// }
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111;
+}
+
+.weather-app {
+    min-height: 100vh;
+    width: 100vw;
+    background-image: url("../img/img6.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    transition: 500ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+    .searchBar {
+        position: absolute;
+        top: 8rem;
+        left: 8rem;
+        width: 25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        animation: fadeIn 0.5s;
+
+        .date-time {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            .time {
+                font-size: 6rem;
+                .pmam {
+                    font-size: 2rem;
+                }
+            }
+            .date {
+                font-size: 2rem;
+            }
+        }
+        .locationInput {
+            position: relative;
+            margin-top: 2rem;
+            .search {
+                background: none;
+                border: none;
+                width: 80%;
+                color: #fff;
+                font-size: 1.6rem;
+                height: 4rem;
+                width: 25rem;
+                border-bottom: 0.1rem solid #fff;
+                padding: 0 2rem;
+
+                &::placeholder {
+                    color: #fff;
+                    font-size: 1.6rem;
+                }
+                &:focus {
+                    outline: none;
+
+                }
+            }
+            .submit {
+                position: absolute;
+                width: 4rem;
+                height: 4rem;
+                top: 0;
+                right: 0;
+                border: none;
+                outline: none;
+                background: none;
+                color: #fff;
+                cursor: pointer;
+                font-size: 1.8rem;
+                transition: 0.2s;
+
+                &:hover {
+                    background-color: rgba(#022534, 0.7);
+                }
+                .searchIcon {
+                    background-color: transparent;
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
+        .citiesList {
+            list-style: none;
+            align-self: flex-start;
+            margin: 2rem;
+
+            .cityList {
+                margin-bottom: 2rem;
+                font-size: 2rem;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+            .result {
+                margin-bottom: 2rem;
+                font-size: 1.6rem;
+            }
+        }
+        .loader {
+            width: 3rem;
+            height: 3rem;
+            border: 0.5rem solid #FFF;
+            border-bottom-color: transparent;
+            margin-top: 4rem;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            }
+        
+            @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        } 
+    }
+
+    .location {
+        position: absolute;
+        top: 12rem;
+        right: 12rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        animation: fadeIn 0.5s;
+        opacity: 1;
+        .city {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+        .country {
+            font-size: 1.6rem;
+            padding-right: 0;
+            align-self: flex-end;
+        }
+    }
+
+    .weather-details {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 35%;
+        display: flex;
+        flex-direction: row;
+        background-color: rgba(#022534, 0.7);
+        animation: fadeIn 0.5s;
+
+
+        .today {
+            width: 30%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            img {
+                width: 10rem;
+                height: 10rem;
+                margin-right: 2rem;
+            }
+
+            .temp {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                align-items: center;
+
+                .strip {
+                    background-color: #022534;
+                    font-size: 1.6rem;
+                    border-radius: 1rem;
+                    padding: 5px 0.8rem;
+                    margin-bottom: 1rem;
+                }
+                .currentTemp {
+                    font-size: 5rem;
+                }
+            }
+            .details {
+                position: absolute;
+                bottom: 3rem;
+                align-self: flex-end;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                width: 80%;
+                .cloud, .humidity, .wind {
+                    font-size: 1.4rem;
+                    .detailsIcon {
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+        }
+
+        .otherDays {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 70%;
+            .day {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                height: 15rem;
+                position: relative;
+                top: 0;
+
+                .strip {
+                    font-size: 1.4rem;
+                    padding: 0.5rem;
+                    border-radius: 1rem;
+                    background-color: #022534;
+                }
+                .otherDaysImg {
+                    width: 7rem;
+                    height: 7rem;
+                }
+                .nextTemp {
+                    font-size: 2.5rem;
+                    font-weight: 100;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+            }
+        }
+    }
+
+    .loadingPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 10rem;
+
+        h5 {
+            font-size: 1.5rem;
+        }
+
+        .loader {
+            width: 3rem;
+            height: 3rem;
+            border: 5px solid #FFF;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            }
+        
+            @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        } 
+              
+    }
+
+}
+
+.onError {
+    top: 20rem !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+}
+
