@@ -28,19 +28,6 @@ html {
     }
 }
 
-// @media screen and (max-width: 300px) {
-//     html {
-//         font-size: 5px;
-//     }
-//     .location {
-//         position: absolute;
-//         top: 6rem;
-//         right: 6rem;
-        
-//     }
-// }
-
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -151,7 +138,7 @@ body {
 
             .cityList {
                 margin-bottom: 2rem;
-                font-size: 2rem;
+                font-size: 1.6rem;
                 cursor: pointer;
 
                 &:hover {
